@@ -1,0 +1,6 @@
+[submodule "Bookit-dbManager"]
+	path = Bookit-dbManager
+	url = https://github.com/honglu2875/Bookit-dbManager.git
+[submodule "Bookit-simple-flask-frontend"]
+	path = Bookit-simple-flask-frontend
+	url = https://github.com/honglu2875/Bookit-simple-flask-frontend.git
