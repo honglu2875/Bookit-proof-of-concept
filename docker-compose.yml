@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+        frontend:
+                build: Bookit-simple-flask-frontend/
+                image: simple-flask
+                networks:
+                        - my_net
+                env_file:
+                        - .env
+                environment:
+                        BACKEND_ADDR: http://backend:8080
+                        DB_ADDR: postgres://db:5432
+        backend:
+                build: Bookit-dbManager/
+                image: dbmanager
+                networks:
+                        - my_net
+                env_file:
+                        - .env
+        db:
+                image: postgres
+                networks:
+                        - my_net
+                environment:
+                        POSTGRES_USER: ${POSTGRES_USER}
+                        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+networks:
+        my_net: 
+                driver: bridge
