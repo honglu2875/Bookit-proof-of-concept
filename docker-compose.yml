@@ -10,7 +10,10 @@ services:
                         - .env
                 environment:
                         BACKEND_ADDR: http://backend:8080
-                        DB_ADDR: postgres://db:5432
+                        DB_ADDR: db
+                depends_on:
+                        - db
+                        - backend
         backend:
                 build: Bookit-dbManager/
                 image: dbmanager
@@ -18,6 +21,8 @@ services:
                         - my_net
                 env_file:
                         - .env
+                depends_on:
+                        - db
         db:
                 image: postgres
                 networks:
@@ -25,6 +30,7 @@ services:
                 environment:
                         POSTGRES_USER: ${POSTGRES_USER}
                         POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+                        POSTGRES_DB: data
 
 networks:
         my_net: 
