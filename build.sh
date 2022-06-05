@@ -47,6 +47,7 @@ echo "POSTGRES_USER=$POSTGRES_USER" >> .env
 echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> .env
 echo "API_KEY=$API_KEY" >> .env
 echo "EMAIL=$EMAIL" >> .env
+echo "REDIRECT_URI=$REDIRECT_URI" >> .env
 
 cd Bookit-dbManager
 ./build.sh
