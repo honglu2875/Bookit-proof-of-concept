@@ -6,6 +6,7 @@ services:
                 image: simple-flask
                 networks:
                         - my_net
+                        - external
                 env_file:
                         - .env
                 environment:
@@ -14,6 +15,8 @@ services:
                 depends_on:
                         - db
                         - backend
+                ports: 
+                        - "5000:5000"
         backend:
                 build: Bookit-dbManager/
                 image: dbmanager
@@ -35,3 +38,6 @@ services:
 networks:
         my_net: 
                 driver: bridge
+                #attachable: true
+        external:
+                attachable: true
