@@ -26,6 +26,7 @@ services:
                         - .env
                 depends_on:
                         - db
+                restart: always
         db:
                 image: postgres
                 networks:
